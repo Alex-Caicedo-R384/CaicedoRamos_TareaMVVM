@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:CaicedoRamos_TareaMVVM.Models"
+             x:Class="CaicedoRamos_TareaMVVM.Views.AboutPage"
+             Title="Acerca De"
+             BackgroundColor="#5e5e5e">
+
+    <ContentPage.BindingContext>
+        <models:AcercaDe />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="dotnet_bot.png"
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="64" />
+            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" TextColor="White" />
+            <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" TextColor="White" />
+            <Label FontSize="22" FontAttributes="Bold" Text="Notes" VerticalOptions="End" TextColor="White" />
+        </HorizontalStackLayout>
+
+        <Label Text="{Binding Message}" TextColor="White" />
+        <Label Text="Esta app está hecha en XAML y C# con .NET MAUI." TextColor="White" />
+        <Button Text="Aprender Mas...." Clicked="LearnMore_Clicked"
+                BackgroundColor="#92000a" TextColor="White" />
+    </VerticalStackLayout>
+
+</ContentPage>
