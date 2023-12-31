@@ -1,4 +1,4 @@
-﻿namespace CaicedoRamos_AppApuntes;
+﻿namespace CaicedoRamos_TareaMVVM;
 
 public static class MauiProgram
 {
