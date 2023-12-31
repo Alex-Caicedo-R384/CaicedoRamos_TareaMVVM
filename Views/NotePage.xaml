@@ -19,14 +19,12 @@
 
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
             <Button Text="Guardar"
-                    Clicked="SaveButton_Clicked"
                     BackgroundColor="#800020"
                     TextColor="White"
                     Command="{Binding SaveCommand}"/>
 
                 <Button Grid.Column="1"
                     Text="Borrar"
-                    Clicked="DeleteButton_Clicked"
                     BackgroundColor="#800020"
                     TextColor="White"
                         Command="{Binding SaveCommand}"/>

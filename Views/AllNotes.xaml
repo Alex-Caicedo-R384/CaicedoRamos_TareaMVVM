@@ -4,7 +4,8 @@
              xmlns:viewModels="clr-namespace:CaicedoRamos_TareaMVVM.ViewModels"
              x:Class="CaicedoRamos_TareaMVVM.Views.AllNotes"
              Title="Tus Notas"
-             BackgroundColor="#5e5e5e">
+             NavigatedTo="ContentPage_NavigatedTo"
+            BackgroundColor="#5e5e5e">
 
     <ContentPage.BindingContext>
         <viewModels:NotesViewModel />
