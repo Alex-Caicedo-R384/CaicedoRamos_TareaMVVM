@@ -15,20 +15,20 @@ namespace CaicedoRamos_TareaMVVM.ViewModels
 
         public string Text
         {
-            get => _note.Text;
+            get => _note.ACText;
             set
             {
-                if (_note.Text != value)
+                if (_note.ACText != value)
                 {
-                    _note.Text = value;
+                    _note.ACText = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        public DateTime Date => _note.Date;
+        public DateTime Date => _note.ACDate;
 
-        public string Identifier => _note.Filename;
+        public string Identifier => _note.ACFilename;
 
         public ICommand SaveCommand { get; private set; }
         public ICommand DeleteCommand { get; private set; }
@@ -49,15 +49,15 @@ namespace CaicedoRamos_TareaMVVM.ViewModels
 
         private async Task Save()
         {
-            _note.Date = DateTime.Now;
+            _note.ACDate = DateTime.Now;
             _note.Save();
-            await Shell.Current.GoToAsync($"..?saved={_note.Filename}");
+            await Shell.Current.GoToAsync($"..?saved={_note.ACFilename}");
         }
 
         private async Task Delete()
         {
             _note.Delete();
-            await Shell.Current.GoToAsync($"..?deleted={_note.Filename}");
+            await Shell.Current.GoToAsync($"..?deleted={_note.ACFilename}");
         }
 
         void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
@@ -71,7 +71,7 @@ namespace CaicedoRamos_TareaMVVM.ViewModels
 
         public void Reload()
         {
-            _note = Models.Nota.Load(_note.Filename);
+            _note = Models.Nota.Load(_note.ACFilename);
             RefreshProperties();
         }
 

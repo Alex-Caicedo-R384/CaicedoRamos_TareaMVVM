@@ -8,22 +8,22 @@ namespace CaicedoRamos_TareaMVVM.Models
 {
     internal class Nota
     {
-        public string Filename { get; set; }
-        public string Text { get; set; }
-        public DateTime Date { get; set; }
+        public string ACFilename { get; set; }
+        public string ACText { get; set; }
+        public DateTime ACDate { get; set; }
 
         public Nota()
         {
-            Filename = $"{Path.GetRandomFileName()}.notes.txt";
-            Date = DateTime.Now;
-            Text = "";
+            ACFilename = $"{Path.GetRandomFileName()}.notes.txt";
+            ACDate = DateTime.Now;
+            ACText = "";
         }
 
         public void Save() =>
-            File.WriteAllText(System.IO.Path.Combine(FileSystem.AppDataDirectory, Filename), Text);
+            File.WriteAllText(System.IO.Path.Combine(FileSystem.AppDataDirectory, ACFilename), ACText);
 
         public void Delete() =>
-            File.Delete(System.IO.Path.Combine(FileSystem.AppDataDirectory, Filename));
+            File.Delete(System.IO.Path.Combine(FileSystem.AppDataDirectory, ACFilename));
 
         public static Nota Load(string filename)
         {
@@ -35,9 +35,9 @@ namespace CaicedoRamos_TareaMVVM.Models
             return
                 new()
                 {
-                    Filename = Path.GetFileName(filename),
-                    Text = File.ReadAllText(filename),
-                    Date = File.GetLastWriteTime(filename)
+                    ACFilename = Path.GetFileName(filename),
+                    ACText = File.ReadAllText(filename),
+                    ACDate = File.GetLastWriteTime(filename)
                 };
         }
 
@@ -56,7 +56,7 @@ namespace CaicedoRamos_TareaMVVM.Models
                     .Select(filename => Nota.Load(Path.GetFileName(filename)))
 
                     // With the final collection of notes, order them by date
-                    .OrderByDescending(note => note.Date);
+                    .OrderByDescending(note => note.ACDate);
         }
     }
 }

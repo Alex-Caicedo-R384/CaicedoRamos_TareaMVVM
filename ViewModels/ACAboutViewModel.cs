@@ -10,10 +10,10 @@ namespace CaicedoRamos_TareaMVVM.ViewModels;
 
 internal class AboutViewModel
 {
-    public string Title => AppInfo.Name;
-    public string Version => AppInfo.VersionString;
-    public string MoreInfoUrl => "https://aka.ms/maui";
-    public string Message => "This app is written in XAML and C# with .NET MAUI.";
+    public string ACTitle => AppInfo.Name;
+    public string ACVersion => AppInfo.VersionString;
+    public string ACMoreInfoUrl => "https://aka.ms/maui";
+    public string ACMessage => "This app is written in XAML and C# with .NET MAUI.";
     public ICommand ShowMoreInfoCommand { get; }
 
     public AboutViewModel()
@@ -22,5 +22,5 @@ internal class AboutViewModel
     }
 
     async Task ShowMoreInfo() =>
-        await Launcher.Default.OpenAsync(MoreInfoUrl);
+        await Launcher.Default.OpenAsync(ACMoreInfoUrl);
 }
